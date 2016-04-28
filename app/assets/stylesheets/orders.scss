@@ -1,0 +1,236 @@
+.order-forms-container {
+  margin: 1em 0 8em;
+  min-height: 30em;
+}
+
+.quantity-field {
+  height: auto !important;
+}
+
+.order-checkout-btn-div {
+  margin: 4em 0;
+}
+
+.empty-cart-btn {
+  background-color: transparent;
+  box-shadow: none;
+  color: $google-red;
+  font-size: 12px;
+}
+
+.empty-cart-btn:hover {
+  background-color: $light-gray;
+}
+
+.total-amount-div {
+  margin: 3em;
+}
+
+.order-header,
+.order-body {
+  font-size: 1.05em;
+  line-height: 0.2em;
+  margin-bottom: 0.5em;
+  padding: 1em;
+}
+
+.order-body {
+  background-color: $light-gray;
+  font-size: 1.05em;
+  line-height: 0.2em;
+  margin-bottom: 0.5em;
+  padding: 1em;
+}
+
+.order-header {
+  background-color: $dark-gray;
+  color: $my-white;
+}
+
+.orders.present.center {
+  margin-top: 3em;
+}
+
+.expand-order {
+  font-weight: bold;
+}
+
+.order-details {
+  background-color: $very-pale-gray;
+  display: none;
+  font-size: 1.05em;
+  margin-bottom: -1em;
+  margin-top: -0.5em;
+  min-height: 18em;
+  padding: 0;
+}
+
+.expand-right {
+  margin-bottom: 0;
+  min-height: 18em;
+}
+
+.col.l3.key {
+  padding-left: 0;
+}
+
+.shipping-address {
+  display: block;
+}
+
+.row.order-image {
+  display: inline-table;
+  margin-top: 1em;
+}
+
+.orders.row {
+  margin-bottom: 0;
+}
+
+.full-order-page {
+  min-height: 30em;
+}
+
+.my-orders.col.l8 {
+  margin-bottom: 8px;
+}
+
+.col.l2.expand-order a {
+  color: $my-green;
+  font-weight: normal;
+}
+
+.close-review {
+  color: $my-black;
+  font-size: 1em;
+  left: 97%;
+  position: absolute;
+  top: 0%;
+}
+
+.review-image {
+  height: 10em;
+  width: 10em;
+}
+
+.review-image-div {
+  height: 10em;
+  padding-left: 1em;
+  width: 10em;
+}
+
+.product-to-rate {
+  font-size: 1em;
+  padding-left: 1em;
+}
+
+.rating {
+  direction: rtl;
+  text-align: center;
+  unicode-bidi: bidi-override;
+}
+
+.star {
+  display: inline-block;
+  font-size: 0.5em;
+  position: relative;
+  width: 0.7em;
+}
+
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent;
+}
+
+.rating > span:hover::before,
+.rating > span:hover ~ span::before {
+  color: $gold;
+  content: "\2605";
+  left: 0;
+  position: absolute;
+  width: 0.7em;
+}
+
+.rating-label {
+  color: $grey-label;
+  font-family: $rating-label;
+  font-size: 0.7em;
+  padding-left: 2em;
+}
+
+.review-submit {
+  width: 100%;
+}
+
+.selected-star {
+  color: transparent;
+}
+
+.selected-star::before {
+  color: $gold;
+  content: "\2605";
+}
+
+.my-textarea {
+  padding: 0.8em 0 !important;
+}
+
+.review-button {
+  font-size: 0.7em;
+  height: 3em;
+  line-height: 3.2em;
+  padding-left: 2.2em;
+  width: 8em;
+}
+
+.review-button:hover {
+  color: $my-white;
+}
+
+.cancel-button {
+  font-size: 0.7em;
+  height: 3em;
+  line-height: 3.2em;
+  margin-top: 20px;
+  padding-left: 2.2em;
+}
+
+.cancel-button:hover {
+  background: $google-red;
+  color: $my-white;
+}
+
+
+.user-address {
+  border: 3px solid $grey-border;
+  height: auto;
+  margin-bottom: 2em;
+}
+
+.all-addresses {
+  width: 80% !important;
+}
+
+.full-submit {
+  width: 100%;
+}
+
+.address-name {
+  border-bottom: 1px solid $bottom-border;
+  font-style: 'ProximaNova',sans-serif,Arial !important;
+  font-weight: bold;
+  padding: 0.8em;
+  text-transform: uppercase;
+}
+
+.address-display {
+  border-bottom: 1px dotted $bottom-border;
+  font-size: 1em;
+  font-style: $section-font !important;
+  padding: 0.8em;
+}
+
+.new-form-button {
+  padding: 1em 0 2em;
+  text-align: center;
+}

@@ -1,0 +1,89 @@
+<%= render "header" %>
+<div class="signup-box">
+  <div class="container">
+    <div class="center">
+      <h5>创建帐号</h5>
+    </div>
+    <div class="row">
+      <div class="col m8 s12">
+        <div class="new-user-form">
+          <%= form_for @user, url: users_path do |f| %>
+            <% unless flash['errors'].blank? %>
+              <div class="error-messages">
+                <ul>
+                  <% flash['errors'].each do |error| %>
+                    <li><%= error %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="">
+              <%= f.label :first_name, "First Name" %>
+              <span class="field-error" id="first-name-error"></span>
+              <%= f.text_field :first_name, required: "required", minlenght: 2, class: "" %>
+            </div>
+
+            <div class="">
+              <%= f.label :last_name, "Last Name" %>
+              <span class="field-error" id="last-name-error"></span>
+              <%= f.text_field :last_name, required: "required", minlenght: 2, class: "" %>
+            </div>
+
+            <div class="">
+              <%= f.label :email, "Email" %>
+              <span class="field-error" id="email-error"></span>
+              <%= f.email_field :email, required: "required", minlenght: 5 %>
+            </div>
+
+            <div class="">
+              <%= f.label :password, "Password" %>
+              <span class="field-error" id="password-error"></span>
+              <%= f.password_field :password, required: "required", class: "pword" %>
+            </div>
+
+            <div class="forgot-password">
+              <input type="checkbox" id="show-password" />
+              <label for="show-password" title="show password">show password</label>
+            </div>
+
+            <div class="submit-div center">
+              <%= f.submit "Create Account", class: "btn signup", id: "submit-signup", disabled: "disabled"%>
+            </div>
+          <% end %>
+          <p class="comments  center">Got an account? Please
+        <%= link_to "登陆", login_path %>.
+          </p>
+        </div>
+      </div>
+
+      <div class="container col l4 m12 s12">
+        <div class="row signup">
+          <p>Sign Up Using</p>
+         <div class="row oauth">
+          <div class="alter-height">
+            <%= link_to "/auth/google" do %>
+              <button class="btn waves-effect waves-light oauth red" type="submit" name="action"><i class="fa fa-google-plus"></i><span class='bar'>|</span><span class='fa-word'>Google</span>
+
+              </button>
+            <% end %>
+          </div>
+        </div>
+        <div class="row oauth">
+          <%= link_to "/auth/facebook" do %>
+            <button class="btn waves-effect waves-light facebook blue" type="submit" name="action"><i class="fa fa-facebook"></i><span class='bar'>|</span><span class='fa-word'>Facebook</span>
+            </button>
+          <% end %>
+        </div>
+          <div class="row oauth">
+            <%= link_to "/auth/twitter" do %>
+            <button class="btn waves-effect waves-light twitter blue" type="submit" name="action"><i class="fa fa-twitter"></i><span class='bar'>|</span><span class='fa-word'>Twitter</span>
+            </button>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "footer" %>

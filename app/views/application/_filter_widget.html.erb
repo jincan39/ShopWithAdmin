@@ -1,0 +1,28 @@
+<div class="filter-div">
+  <div class="row">
+  <%= form_for_filterrific @filterrific do |f| %>
+    <div class="col s1">
+    <span class="filter-header">FILTER BY</span>
+    </div>
+    <div class="col s3">
+    <label class="bold black-text">Price: </label>
+    <%= f.number_field :with_low_price, class: "filterrific-periodically-observed text-field", placeholder: "₦", id: "lower-value", min: 0 %> -
+    <%= f.number_field :with_high_price, class: "filterrific-periodically-observed text-field", placeholder: "₦", id: "upper-value" %>
+    </div>
+    <div class="col s3">
+      <%= f.select(:with_subcategory, options_for_select(filter_subcategories(@subcategories)), {include_blank: "Subcategory"}, { :class => 'browser-default' } )%>
+    </div>
+
+    <div class="col s3">
+      <%= f.select(:with_category, options_for_select(filter_categories), {include_blank: "Category"}, { :class => 'browser-default' })%>
+    </div>
+
+    <div class="col s1">
+      <%= link_to "Reset Filters", reset_filterrific_url, class: "waves-effect waves-light btn filter" %>
+    </div>
+    <div class="col s1">
+      <%= render_filterrific_spinner %>
+    </div>
+    <% end %>
+  </div>
+</div>

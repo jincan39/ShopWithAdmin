@@ -1,0 +1,163 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.slider {
+  height: 540px !important;
+}
+
+.slides {
+  height: 500px !important;
+  min-height: 500px !important;
+  // width: 500px !important;
+  .slide-item,
+  .slide-item.active {
+    z-index: 0 !important;
+  }
+}
+
+.waves-effect {
+  z-index: 0 !important;
+}
+
+.product-description-body {
+  margin-top: 3em;
+}
+
+.product-view-image {
+  margin: 0 auto;
+}
+
+.product-name {
+  font-size: +1;
+}
+
+.price {
+  color: $my-green;
+  font-size: 1.2em;
+  width: 8em;
+}
+
+.rating-counts {
+  float: left;
+  margin: 10px 0 30px;
+  width: 100%;
+}
+
+.counts {
+  font-size: 1em;
+  margin: 1.1em 0 0 1em;
+}
+
+.rating {
+  direction: rtl;
+  font-size: 2em;
+  margin: 0;
+  max-width: 6.5em;
+  unicode-bidi: bidi-override;
+}
+
+.star-character {
+  display: inline-block;
+  position: relative;
+  //width: 1.1em;
+}
+
+.star-character:hover::before,
+.star-character:hover ~ .star-character::before {
+  content: "\2605";
+  position: absolute;
+}
+
+.buy-now {
+  margin-top: 3rem;
+}
+
+.my-icons {
+  color: $my-grey;
+}
+
+.add-to-wishlist {
+  color: $my-grey;
+
+  &:hover {
+    color: $my-green;
+  }
+
+  .wishlist-icon {
+    font-size: 1.8em !important;
+    padding: 0.2em 0;
+    vertical-align: middle;
+  }
+}
+
+.shares {
+  padding-left: 2em;
+}
+
+.fa-facebook.product-page:hover {
+  color: $facebook-blue;
+}
+
+.fa-twitter.product-page:hover {
+  color: $twitter-blue;
+}
+
+.fa-instagram.product-page:hover {
+  color: $instagram-red;
+}
+
+.fa-pinterest-p.product-page:hover {
+  color: $pinterest-red;
+}
+
+#description-tabs {
+  margin-bottom: 2em;
+
+  .collection {
+    border: none;
+  }
+}
+
+.tabs.product-features {
+  overflow-x: hidden !important;
+
+  li {
+    border-bottom: 3px solid $my-grey;
+  }
+
+  .indicator {
+    background-color: $my-black;
+    height: 3px;
+  }
+}
+
+.products-input {
+  height: 2.3rem !important;
+}
+
+hr {
+  margin-bottom: 3em;
+}
+
+.related-products {
+  //margin-top: 5em;
+}
+
+.card-no-shadow {
+  border: 1px solid $my-grey;
+  box-shadow: none !important;
+}
+
+.bordered tr:last-of-type {
+  border-bottom: none;
+}
+
+.filled-in-star::before {
+  content: "\2605";
+  position: absolute;
+}
+
+.star-size {
+  font-size: 2em;
+}

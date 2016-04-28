@@ -1,0 +1,82 @@
+<%= render "header" %>
+<div class="signin-box">
+  <div class="container">
+    <div class="center">
+      <h5>登陆</h5>
+      <% unless flash['notice'].blank?  %>
+        <div class= "pword-message">  <%= flash['notice'] %> </div>
+      <% end %>
+    </div>
+    <div class="row">
+      <div class="col m8 s12">
+        <div class="signin-user-form" id="signin-user-form">
+          <%= form_tag %>
+            <% unless flash['errors'].blank? %>
+              <div class="error-messages">
+                <ul>
+                  <% flash['errors'].each do |error| %>
+                    <li><%= error %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <%= form_for :session, url: login_path do |f| %>
+              <div class="">
+                <%= f.label :email, "Email" %>
+                <span class="field-error" id="email-error"></span>
+                <%= f.email_field :email, required: "required", minlength: 5 %>
+              </div>
+
+              <div class="">
+                <%= f.label :password, "Password" %>
+                <span class="field-error" id="password-error"></span>
+                <%= f.password_field :password, required: "required", class: "pword" %>
+              </div>
+
+              <div class="submit-div center">
+            <%= f.submit "登陆", class: "btn signin", id: "submit-signin", disabled: "disabled"%> 
+              </div>
+            <% end %>
+
+        </div>
+
+        <div class="signin-para">
+          <p class="forgot"><%= link_to "Forgot your password?", forgot_users_path %></p>
+          <p class="comments">If you do not have an account, please
+        <%= link_to "注册", new_user_path %>
+          </p>
+        </div>
+
+      </div>
+      <div class="col m4 s12">
+        <div class="signin-oauth-group">
+          <h6>Or sign in with</h6>
+         <div class="row oauth">
+          <div class="alter-height">
+            <%= link_to "/auth/google" do %>
+              <button class="btn waves-effect waves-light oauth red" type="submit" name="action"><i class="fa fa-google-plus"></i><span class='bar'>|</span><span class='fa-word'>Google</span>
+
+              </button>
+            <% end %>
+          </div>
+        </div>
+        <div class="row oauth">
+          <%= link_to "/auth/facebook" do %>
+            <button class="btn waves-effect waves-light facebook blue" type="submit" name="action"><i class="fa fa-facebook"></i><span class='bar'>|</span><span class='fa-word'>Facebook</span>
+            </button>
+          <% end %>
+        </div>
+          <div class="row oauth">
+          <%= link_to "/auth/twitter" do %>
+            <button class="btn waves-effect waves-light twitter blue" type="submit" name="action"><i class="fa fa-twitter"></i><span class='bar'>|</span><span class='fa-word'>Twitter</span>
+            </button>
+          <% end %>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "footer" %>

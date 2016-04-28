@@ -1,0 +1,86 @@
+<div class="top-contain">
+  <div id="top-fixed">
+    <div class="top-bar valign-wrapper">
+      <div class="container-trim">
+        <div class="left">
+          <span class="white-text small-text">快速 &amp; 便捷的海外购物</span>
+        </div>
+        <div class="right">
+          <%= link_to "关于我们", "#", class: 'white-text small-text' %>
+<!--           <span class="white-text small-text">&nbsp;|&nbsp;</span>
+          <%= link_to "博客", "#", class: 'white-text small-text' %> -->
+          <span class="white-text small-text">&nbsp;|&nbsp;</span>
+          <%= link_to "请联系我们", "/contact", class: 'white-text small-text' %>
+          <span class="white-text small-text">&nbsp;|&nbsp;</span>
+          <%= link_to "常见问题", "#", class: 'white-text small-text' %>
+          <span class="white-text small-text">&nbsp;|&nbsp;</span>
+          <%= link_to "收藏夹", wishlist_index_path, class: 'white-text small-text' %>
+          <!-- <span class="white-text small-text">&nbsp;|&nbsp;</span> -->
+          <!-- <%= link_to "货币 - NGN", "#", class: 'white-text small-text' %> -->
+          <% if logged_in %>
+            <span class="white-text small-text">&nbsp;|&nbsp;</span>
+            <span class="black-text small-text">
+              <span class="full-profile">Welcome, <%= current_user.first_name %>
+              <%= render "user_profile" %></span>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <nav class="white valign-wrapper">
+      <div class="row container-trim">
+        <div class="col s2">
+          <div class="left">
+            <a class="brand-logo black-text" href="<%= root_path %>">
+              <div class="left">
+                <span>在线购物中心</span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="col s1">&nbsp;</div>
+        <div class="col s5 search-container">
+          <div class="search-bar">
+            <div class="input-field my-input" id="search-input">
+             <%= form_tag({controller: "search", action: "result"}, method: "get") do %>
+             <%= text_field_tag :term, "", required: "required", placeholder: "Search by product name or category", class: "black-text browser-default", id: "my-input-field" %>
+             <% end %>
+            </div>
+          </div>
+          <div class="">
+          &nbsp;
+          </div>
+        </div>
+        ​
+        <div class="col s4">
+          <div class="valign-wrapper">
+            <span class="search-icon-span left">
+             <i class="large material-icons search-i" id="search">search</i>
+           </span>
+
+           <div class="right">
+            <span class="white-text small-text">&nbsp;|&nbsp;</span>
+            <span class="category-span">
+
+              <%= link_to "商品种类", categories_path, class: "black-text category-link" %>
+
+              <%= render "category_dropdown" %>
+
+            </span>
+            <span class="white-text small-text">&nbsp;|&nbsp;</span>
+            <span class="cart-span" id="cart-span">
+              <a href="#" class="black-text cart-link">购物车<span class="total-text"><span id="total-item" class="total-item">
+                <% if cookies[:cart] && JSON.parse(cookies[:cart]).size > 0 %>
+                <%= JSON.parse(cookies[:cart]).size %>
+                <% end %>
+              </span></span>
+            </a>
+            <%= render "cart_dropdown" %>
+          </span>
+          <span class="white-text small-text">&nbsp;|&nbsp;</span>
+          <%= auth_link %>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

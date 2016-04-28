@@ -1,0 +1,12 @@
+<div class="row grey pad-round">
+  <div class="col l8">
+    <span class="white-text">商品</span>
+  </div>
+  <div class="col l2">
+    <span class="white-text">添加日期 </span>
+  </div>
+  <span class="col l1 center white-text">价格</span>
+  <span class="col center l1 white-text">移除</span>
+</div>
+<%= render partial: "wishlist_product",
+             collection: @wishproducts, as: :wishproduct %>

@@ -1,0 +1,227 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$l-grey: #b2beb5;
+$default-blue: #338574;
+$facebook-blue: #3b5998;
+$twitter-blue: #4099ff;
+$google-red: #d34836;
+
+form {
+  &.signin {
+    padding-top: 2.5em;
+  }
+
+  &.pipe-signup {
+    border-right: 2px solid $l-grey;
+  }
+
+  &.pipe-signin {
+    border-right: 2px solid $l-grey;
+    height: 15em;
+  }
+
+  &.forgot {
+    border-right: none;
+  }
+}
+
+.row.container {
+  bottom: 0;
+  box-shadow: none;
+  left: 0;
+  margin: auto;
+  padding-top: 1.2em;
+  right: 0;
+  top: 0;
+  width: 60%;
+
+  &.forgot {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 40%;
+  }
+}
+
+.signin-box,
+.signup-box,
+.forgot-box {
+  margin-top: 2em;
+  min-height: 35em;
+}
+
+.signup-oauth-group {
+  // @extend .pull-right;
+
+  margin: 2em 3em;
+}
+
+.row.submit {
+  position: relative;
+  right: 48.1955px;
+  top: 20px;
+
+  .signin {
+    margin-left: 120px;
+    position: initial;
+    text-align: left;
+  }
+}
+
+.btn.waves-effect.waves-light {
+  height: 40px;
+  vertical-align: center;
+  width: 150px;
+
+  &.blue-forgot {
+    background-color: $default-blue !important;
+  }
+
+  &.blue {
+    background-color: $default-blue !important;
+    text-align: center;
+    width: 200px;
+  }
+
+  &.facebook.blue {
+    background-color: $facebook-blue !important;
+    width: 150px !important;
+  }
+
+  &.twitter.blue {
+    background-color: $twitter-blue !important;
+    width: 150px !important;
+  }
+
+  &.oauth.red {
+    background-color: $google-red !important;
+  }
+}
+
+.fa.fa-google-plus,
+.fa.fa-facebook,
+.fa.fa-twitter {
+  height: 30px;
+  left: 10px;
+  padding-right: 5px;
+  position: absolute;
+}
+
+.fa-word {
+  margin-left: 10px;
+}
+
+.row.oauth {
+  padding-right: 22.5px;
+}
+
+
+.bar {
+  font-size: 20px;
+  font-weight: 100;
+  left: 35px;
+  position: absolute;
+  top: 0;
+}
+
+.signin.row.container {
+  bottom: 0;
+  box-shadow: none;
+  height: 28.5em;
+  left: 0;
+  margin: auto;
+  right: 0;
+  top: 0;
+  width: 60%;
+}
+
+.comments {
+  // position: relative;
+  // right: 48.1955px;
+}
+
+.describe {
+  margin-bottom: 50px;
+}
+
+.row.signin p {
+  margin-right: 40px;
+}
+
+.row.submit-forgot,
+.signin-para,
+.comments.signup {
+  margin-top: 2em;
+  text-align: center;
+
+  a:link {
+    color: $default-blue;
+  }
+
+  a:visited {
+    color: $default-blue;
+  }
+
+  a:hover {
+    color: $default-blue;
+  }
+
+  a:active {
+    color: $facebook-blue;
+  }
+}
+
+.col.l12.forgot {
+  // margin-top: 35px;
+}
+
+.msg-forgot {
+  // text-align: center;
+}
+
+.signin-para p {
+  // margin: 0 !important;
+  // padding-top: 10px !important;
+}
+
+.error-messages {
+  color: $google-red;
+}
+
+.field-error {
+  @extend .pull-right;
+
+  color: $google-red;
+  font-size: 0.8em;
+}
+
+.field-success {
+  @extend .pull-right;
+
+  color: $my-green;
+  font-size: 0.8em;
+}
+
+.new-user-form,
+.signin-user-form {
+  margin: 2em 6em;
+}
+
+.submit-div {
+  margin-top: 3em;
+}
+
+.forgot-password {
+  #show-password:checked + [for="show-password"]::before {
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+
+.pword-message {
+  color: $my-green;
+  font-size: 0.9em;
+}

@@ -1,0 +1,44 @@
+<%= render partial: 'header' %>
+<div class="shift-down">
+
+
+  <div class="container-large">
+    <div class="row nav-like-height valign-wrapper">
+      <span>&nbsp;&nbsp;</span>
+      <h5 class="left"><%= @category.name %></h5>
+      <h5 class="col l3">&nbsp;</h5>
+      <div class="right">
+        <%= link_to "Home", root_path %>
+        <span>&nbsp;»&nbsp;</span>
+        <%= link_to @category.name, category_path %>
+        <span>&nbsp;&nbsp;</span>
+        <span class="bold">(<%= @result_length %> results)</span>
+        <span>&nbsp;&nbsp;</span>
+      </div>
+    </div>
+      <%= render partial: 'application/filter_widget' %>
+
+    <div class= "row-break-small"></div>
+    <div class="row sort">
+      <div class="col s2">
+        <select class="browser-default">
+         <option value="" disabled selected>Sort By</option>
+          <option value="hprice">最高价格</option>
+          <option value="lprice">最低价格</option>
+          <option value="arrival">最新</option>
+          <option value="rating">评价</option>
+        </select>
+      </div>
+
+      <div class="digg-pagination right"><%= will_paginate @products %></div>
+    </div>
+    <div class= "row category-products" id="filterrific_results">
+      <%= render partial: "landing/product", collection: @products %>
+    </div>
+    <div class="row">
+      <div class="digg-pagination right"><%= will_paginate @products %></div>
+    </div>
+  </div>
+</div>
+<%= render partial: 'prefooter' %>
+<%= render partial: 'footer' %>
