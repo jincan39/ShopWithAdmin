@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160406171655) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "name"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "oauth_accounts", ["user_id"], name: "index_oauth_accounts_on_user_id"
+  add_index "oauth_accounts", ["user_id"], name: "index_oauth_accounts_on_user_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id"
@@ -58,8 +61,8 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id"
-  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id"
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+  add_index "order_items", ["product_id"], name: "index_order_items_on_product_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
     t.string   "order_number"
@@ -75,9 +78,9 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.datetime "purchased_at"
   end
 
-  add_index "orders", ["address_id"], name: "index_orders_on_address_id"
-  add_index "orders", ["order_number"], name: "index_orders_on_order_number"
-  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
+  add_index "orders", ["address_id"], name: "index_orders_on_address_id", using: :btree
+  add_index "orders", ["order_number"], name: "index_orders_on_order_number", using: :btree
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "product_image_links", force: :cascade do |t|
     t.string   "link_name"
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "product_image_links", ["product_id"], name: "index_product_image_links_on_product_id"
+  add_index "product_image_links", ["product_id"], name: "index_product_image_links_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -101,7 +104,7 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.integer  "price"
   end
 
-  add_index "products", ["subcategory_id"], name: "index_products_on_subcategory_id"
+  add_index "products", ["subcategory_id"], name: "index_products_on_subcategory_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.string   "comment"
@@ -113,8 +116,8 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.string   "title"
   end
 
-  add_index "reviews", ["product_id"], name: "index_reviews_on_product_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["product_id"], name: "index_reviews_on_product_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "specifications", force: :cascade do |t|
     t.string   "key"
@@ -124,7 +127,7 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "specifications", ["product_id"], name: "index_specifications_on_product_id"
+  add_index "specifications", ["product_id"], name: "index_specifications_on_product_id", using: :btree
 
   create_table "subcategories", force: :cascade do |t|
     t.string   "name"
@@ -133,7 +136,7 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "subcategories", ["category_id"], name: "index_subcategories_on_category_id"
+  add_index "subcategories", ["category_id"], name: "index_subcategories_on_category_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -155,7 +158,21 @@ ActiveRecord::Schema.define(version: 20160406171655) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "wishlists", ["product_id"], name: "index_wishlists_on_product_id"
-  add_index "wishlists", ["user_id"], name: "index_wishlists_on_user_id"
+  add_index "wishlists", ["product_id"], name: "index_wishlists_on_product_id", using: :btree
+  add_index "wishlists", ["user_id"], name: "index_wishlists_on_user_id", using: :btree
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "oauth_accounts", "users"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "addresses"
+  add_foreign_key "orders", "users"
+  add_foreign_key "product_image_links", "products"
+  add_foreign_key "products", "subcategories"
+  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "specifications", "products"
+  add_foreign_key "subcategories", "categories"
+  add_foreign_key "wishlists", "products"
+  add_foreign_key "wishlists", "users"
 end

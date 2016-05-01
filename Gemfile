@@ -21,12 +21,12 @@ gem "omniauth"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth-google-oauth2"
-gem "will_paginate"
+gem "will_paginate", "~> 3.1.0"
 gem "bcrypt", "~> 3.1.7"
 gem "coveralls", require: false
 gem "filterrific"
 
-group :development, :test do
+group :development, :test, :production do
   gem "pry"
   gem "byebug"
   gem "capybara"
@@ -35,16 +35,12 @@ group :development, :test do
   gem "selenium-webdriver"
   gem "rubocop", require: false
   gem "scss_lint", require: false
-  gem "sqlite3"
+  gem "pg"
   gem "factory_girl_rails"
   gem "letter_opener"
   gem "shoulda-matchers", "~> 3.1"
   gem "figaro"
   gem "transactional_capybara"
-end
-
-group :production do
-  gem "pg"
 end
 
 group :development do
