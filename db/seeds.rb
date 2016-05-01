@@ -7,14 +7,16 @@ Product.destroy_all
 Subcategory.destroy_all
 Category.destroy_all
 
+Faker::Config.locale = 'zh-CN'
+
 categories = %w(
-  Fashion
-  Electronics
-  Home\ and\ Kitchen
-  Baby,\ Kids\ and\ Toys
-  Machinery
-  Books
-  Sports\ and\ Fitness
+  时尚
+  电子
+  家居与厨房
+  婴儿与儿童，玩具
+  机械
+  图书
+  运动与健康
 )
 image_links = %w(
   http://i.imgur.com/JQOY8u9.jpg
