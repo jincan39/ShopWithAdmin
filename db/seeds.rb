@@ -19,11 +19,6 @@ categories = %w(
   运动与健康
 )
 image_links = %w(
-  http://i.imgur.com/JQOY8u9.jpg
-  http://i.imgur.com/Pqlmpic.jpg
-  http://i.imgur.com/QsgYAlQ.png
-  http://i.imgur.com/6VuVwkr.jpg
-  http://i.imgur.com/kh6zWa5.jpg
   http://i.imgur.com/ToxiFz1.png
   http://i.imgur.com/YYnFLrm.png
   http://i.imgur.com/16vrQzW.jpg
@@ -35,7 +30,7 @@ image_links = %w(
 categories.each do |category|
   new_category = Category.create(name: category)
 
-  10.times do
+  5.times do
     new_product = Product.new
     new_product.name = Faker::Commerce.product_name
     new_product.price = Faker::Number.number(2 + rand(3))
@@ -49,7 +44,7 @@ categories.each do |category|
     new_subcategory.save
     new_product.subcategory_id = new_subcategory.id
 
-    new_product.size = Faker::Lorem.words(4).join(",")
+    new_product.size = ("大,中,小")
     new_product.save
 
     new_product_image_link = ProductImageLink.new
@@ -72,7 +67,7 @@ categories.each do |category|
       new_review.save
     end
 
-    5.times do
+    3.times do
       new_specification = Specification.new
 
       new_specification.key = Faker::Lorem.word
